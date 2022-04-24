@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import com.joeleduardo.webservicemongo.domain.User;
 
-@Repository //anotação no SpringData
+@Repository //anotação do SpringData para fazer operações
 public interface UserRepository extends MongoRepository<User, String> {
 
 }
