@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +49,11 @@ public class UserResource {                                             // contr
 	return ResponseEntity.created(uri).build();
 	}
 	
-	
+	@DeleteMapping(value="/{id}") //indica que o método vai ser o endpoint no caminho /users
+	public ResponseEntity<Void> delete(@PathVariable String id) { //junta o String id com o id recebido na url
+	service.delete(id);
+		return ResponseEntity.noContent().build();
+	}
 	
 	
 	
